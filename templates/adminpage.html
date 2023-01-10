@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%block pageheading%}
+Add Tech Card
+{%endblock%}
+{%block content%}
+<center>
+    <a href="{{ url_for('get_form_data') }}"><button class="btn btn-outline-success">Add New Card</button></a>
+    <br> <br>
+    <br> <br>
+    <br> <br>
+    <br> <br>
+    <a href="{{ url_for('deletecard') }}"><button class="btn btn-outline-success">Delete a Card</button></a>
+    <br> <br>
+    <br> <br>
+    <br> <br>
+    <br> <br>
+</center>
+{%endblock%}

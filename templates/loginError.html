@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{%block pageHeading%}
+<div class="tech-head">
+    <h1>Authentication Error</h1>
+</div>
+{%endblock%}
+
+
+{%block content%}
+<h1>Invalid UserID/Password. Please try again</h1>
+<a href="{{ url_for('loginPage') }}">Try Again</a>
+{%endblock%}

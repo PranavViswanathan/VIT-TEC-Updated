@@ -1,0 +1,65 @@
+{%extends 'base.html'%} {%block pageHeading%}
+<div class="tech-head">
+  <h1>Technology</h1>
+</div>
+{%endblock%} {%block content%} {%for card in cards%}
+<div class="col-lg-4">
+  <!-- CARD 01 -->
+  <div
+    class="course-card"
+    data-bs-toggle="modal"
+    data-bs-target="#exampleModal-{{card[0]}}"
+  >
+    <div>
+      <h5><strong>{{card[1]}}</strong></h5>
+      <p>{{card[2]}}</p>
+    </div>
+  </div>
+</div>
+<!-- MODAL FOR CARD 01 -->
+<div
+  class="modal fade"
+  id="exampleModal-{{card[0]}}"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">
+          <strong>{{card[1]}}</strong>
+        </h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img
+            src="{{ url_for('static', filename='media/digitalTools-min.jpg') }}"
+          />
+        </div>
+        <div class="modal-learn">
+          <h4><strong>What will you learn?</strong></h4>
+          {{card[3]}}
+        </div>
+        <div class="modal-modules">
+          <h4><strong>Course Modules</strong></h4>
+          {{card[4]}}
+        </div>
+        <div class="modal-features">
+          <h4><strong>Salient Features</strong></h4>
+          {{card[5]}}
+        </div>
+        <div class="modal-domain">
+          <h4><i>Domain: Manufacturing</i></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%endfor%} {%endblock%}

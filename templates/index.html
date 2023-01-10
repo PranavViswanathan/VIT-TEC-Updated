@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- BootStrapv5.2 -->
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/61b8e6a316.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link href={{ url_for('static', filename='css/style.css') }} rel="stylesheet" />
+    <title>VIT-TEC</title>
+  </head>
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar bg-light custom-navbar fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('index') }}"><logo><img src={{ url_for('static', filename='media/vit-logo-bw.png') }}></logo></a>
+          <button class="navbar-toggler collapsed"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar"
+                        aria-controls="offcanvasNavbar"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        >
+                    <span class="toggler-icon top-bar"></span>
+                    <span class="toggler-icon middle-bar"></span>
+                    <span class="toggler-icon bottom-bar"></span>
+            </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">VIT-TEC</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}"                 
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ url_for('technology') }}"                  
+                    >Technology</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ url_for('leadership') }}"                  
+                    >Leadership</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ url_for('personality') }}"                  
+                    >Personality Development</a
+                  >
+                </li>
+                <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ url_for('admin_Options') }}">Admin
+                                    Page</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Home Screen -->
+      <div class="intro">
+        <div class="intro-bg-video">
+          <video src="{{ url_for('static', filename='media/intro-video.mp4') }}" loop muted autoplay></video>
+        </div>
+        <div class="intro-text">
+          <div>
+            <div class="intro-text-head">VIT-TEC</div>
+            <!-- <br /> -->
+            <div class="intro-text-para">
+              <strong>VIT Technology Enhancement Center</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Vision Mission -->
+    <section class="intro-card">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="vision-card">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h2><strong>VISION</strong></h2>
+                  </div>
+                <div class="flip-card-back">
+                  <h5>Impart learning and skills to enhance performance, productivity, motivation and morale</h5>
+                </div>
+              </div>
+            </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="mission-card">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <h2><strong>MISSION</strong></h2>
+                </div>
+                <div class="flip-card-back">
+                  <h5>Enhance people talents in Technology and Skills through Strategic  high quality Training</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Why VIT-TEC -->
+    <section>
+      <div class="bg-1">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="why-vittec">
+                <div>
+                  <div class="why-vittec-head">Why VIT-TEC?</div>
+                  <div class="why-vittec-para">
+                    <ul>
+                      <li>A globally -renowned institute</li>
+                      <li>Alumnus in many countries</li>
+                      <li>50+ Courses</li>
+                      <li>Advanced Technology Courses</li>
+                      <li>Global recognized technical courses</li>
+                      <li>Highly Qualified Dedicated Professionals</li>
+                      <li>Expertise in Diversified Domains</li>
+                      <li>200+ Industry solutions provided</li>
+                      <li>500+ Corporates trained</li>
+                      <li>Well researched learning resources</li>
+                      <li>State-of-the-art infrastructure</li>
+                      <li>Industry Sponsored Centre of Excellence</li>
+                      <li>Custom Designed Training Programs</li>
+                      <li>Basics to Advanced Levels of Training </li>
+                      <li>Face-to Face and Blended mode Training</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="why-vittec-img">
+                <div class="vittec-img-left">
+                  <img src="{{ url_for('static', filename='media/2.png') }}">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Corporate Training -->
+    <section>
+      <section>
+      <div class="bg-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="why-vittec-img">
+                <div class="vittec-img-right">
+                  <img src="{{ url_for('static', filename='media/3.png') }}">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="why-corp-tr">
+                <div>
+                  <div class="why-corp-tr-head">Why Corporate Training?</div>
+                  <div class="why-corp-tr-para">
+                    <ul>
+                      <li>Enhance Employee Agility</li>
+                      <li>Reduce Skills-gap and Business gap</li>
+                      <li>Stay updated with Latest Technology</li>
+                      <li>Increase in Productivity</li>
+                      <li>Innovative Idea Generation</li>
+                      <li>Reskilling and Up skilling Employees</li>
+                      <li>Increase in Employee Motivation  and Morale</li>
+                      <li>Retaining talent</li>
+                      <li>Remaining Competitive</li>
+                      <li>Building Work Culture</li>
+                      <li>Training solutions impacting your Business</li>
+                      <li>Drive towards your mission</li>
+                      <li>Build and manage your brand</li>
+                      <li>Make strategic business decisions</li>
+                      <li>Identify leaders – smooth succession planning</li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What domains -->
+    <section>
+      <div class="domain-section">
+        <div class="container domain-section-header">
+          <div class="domain-header">
+            How Does VIT-TEC Support Corporates?
+          </div>
+        </div>
+        <div class="bg-3">
+          <div class="container">
+            <div class="row">
+<!--  Technology Card -->
+              <div class="col-lg-4">
+                <div class="domain-card">
+                  <i class="fa-solid fa-laptop-code fa-3x"></i>
+                  <h3>Technology</h3>
+                  <p>Technology programs offers upskilling and reskilling  in the emerging technical areas.</p><br><br>
+                  <a href="{{ url_for('technology') }}"><button class="pulse">See more...</button></a>
+                </div> 
+              </div>
+<!-- Leadership Card -->
+              <div class="col-lg-4">
+                <div class="domain-card">
+                  <i class="fa-solid fa-people-group fa-3x"></i>
+                  <h3>Leadership</h3>
+                  <p>Leadership training transforms the learners into leaders and enable them to embrace adaptability in all domains.</p><br>
+                  <a href="{{ url_for('personality') }}"><button class="noselect">See more...</button></a>
+                </div> 
+              </div>
+<!-- Personality Card -->
+              <div class="col-lg-4">
+                <div class="domain-card">
+                  <i class="fa-solid fa-person-chalkboard fa-3x"></i>
+                  <h3>Personality Development</h3>
+                  <p>Trainers will  lend their expertise to evaluate one’s own personality, alter one’s perception for better outcomes, to stay motivated and to communicate powerfully. </p>
+                  <button>See more...</button>
+                </div> 
+              </div>
+              
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__addr">
+          <h2>Address</h2>
+          <address>
+          Dean, Sponsored Research & Industrial Consultancy (SpoRIC)<br>
+          AB2-102 SMEC Research Scholar Room<br>
+          VIT, Chennai Vandalur -Kelambakkam Road<br>
+          Chennai - 600 127, Tamil Nadu, INDIA
+          <br>
+          </address>
+        </div>
+  
+  <ul class="footer__nav">
+    <li class="nav__item">
+      <h2 class="nav__title">Contact</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Phone: 044 3993 1196</a>
+        </li>
+
+        <li>
+          <a href="#">FAX: 044 3993 2555</a>
+        </li>
+            
+        <li>
+          <a href="#">Mobile: 73587 82571, 94878 33044</a>
+        </li>
+        <li>
+          <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+        </li>
+      </ul>
+    </li>
+    
+    <!-- <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Technology</h2>
+      
+      <ul class="nav__ul nav__ul--extra">
+        <li>
+          <a href="#">Hardware Design</a>
+        </li>
+        
+        <li>
+          <a href="#">Software Design</a>
+        </li>
+        
+        <li>
+          <a href="#">Digital Signage</a>
+        </li>
+        
+        <li>
+          <a href="#">Automation</a>
+        </li>
+        
+        <li>
+          <a href="#">Artificial Intelligence</a>
+        </li>
+        
+        <li>
+          <a href="#">IoT</a>
+        </li>
+      </ul>
+    </li>
+     -->
+    <li class="nav__item">
+      <h2 class="nav__title">Legal</h2>
+      
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Terms of Use</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  
+  <div class="legal">
+    <p>&copy; VIT 2023. All rights reserved.</p>
+  </div>
+    </footer>
+
+    <!-- BootStrapv5.2 -->
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
