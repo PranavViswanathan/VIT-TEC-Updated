@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-
+UPLOAD_FOLDER = './static/media/modalImages'
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
                             database='VIT-TEC fresh',
@@ -54,6 +54,9 @@ def logout():
     session["name"] = None
     return redirect("/")
 
+@app.route("/tech-seg")
+def techSeg():
+    return render_template("tech-seg.html")
 
 @app.route("/technology")
 def technology():
@@ -70,9 +73,10 @@ def technology():
     cur = conn.cursor()
     cur.execute('SELECT * FROM techscards;')
     cards = cur.fetchall()
+    print(cards)
     cur.close()
     conn.close()
-    print(cards)
+
     return render_template("technology2.html", cards = cards)
 
 @app.route("/leadership")
@@ -93,15 +97,21 @@ def admin_Options():
 @app.route('/addcard', methods =["GET", "POST"])
 def get_form_data():
     if request.method == "POST":
-
+       file1 = request.files['file1']
+       path = os.path.join(UPLOAD_FOLDER, file1.filename)
+       file1.save(path)
        title = request.form.get("title")
        info = request.form.get("info")
        whatLearn = request.form.get("whatLearn")
        courseModules = request.form.get("courseModules")
        salFeatures = request.form.get("salFeatures")
        parentCourse = request.form.get("parentCourse")
+       imageName = file1.filename
+       domain = request.form.get("domain")
 
-       prepared_statement = "INSERT INTO techscards (title, info, whatlearn, coursemodules, salfeatures, parentcourse) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')".format(title, info, whatLearn, courseModules, salFeatures, parentCourse)
+       
+
+       prepared_statement = "INSERT INTO techscards (title, info, whatlearn, coursemodules, salfeatures, parentcourse, imagename, domain) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')".format(title, info, whatLearn, courseModules, salFeatures, parentCourse, imageName, domain)
        conn = get_db_connection()
        cur = conn.cursor()
        cur.execute(prepared_statement)
@@ -114,6 +124,7 @@ def get_form_data():
 @app.route('/deletecard', methods = ["GET", "POST"])
 def deletecard():
     if request.method == "POST":
+       
         title = request.form.get("title")
         prepared_statement_delete = "DELETE FROM techscards WHERE (title = '{0}')".format(title)
         conn2 = get_db_connection()
@@ -127,5 +138,20 @@ def deletecard():
         return  render_template("adminpage.html")
     return render_template("deleteform.html")
 
+
+
+
+@app.route('/temp', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        if 'file1' not in request.files:
+            return 'there is no file1 in form!'
+        file1 = request.files['file1']
+        path = os.path.join(UPLOAD_FOLDER, file1.filename)
+        file1.save(path)
+        return path
+
+        return 'ok'
+    return render_template("temp.html")
 
 

@@ -3,6 +3,7 @@
   <h1>Technology</h1>
 </div>
 {%endblock%} {%block content%} {%for card in cards%}
+
 <div class="col-lg-4">
   <!-- CARD 01 -->
   <div
@@ -16,6 +17,8 @@
     </div>
   </div>
 </div>
+{%endfor%} {%for card in cards%} {% set imgpth =
+'static/media/modalImages/{0}'.format(card[7]) %}
 <!-- MODAL FOR CARD 01 -->
 <div
   class="modal fade"
@@ -39,9 +42,7 @@
       </div>
       <div class="modal-body">
         <div class="modal-image">
-          <img
-            src="{{ url_for('static', filename='media/digitalTools-min.jpg') }}"
-          />
+          <img src="{{imgpth}}" />
         </div>
         <div class="modal-learn">
           <h4><strong>What will you learn?</strong></h4>
@@ -56,7 +57,7 @@
           {{card[5]}}
         </div>
         <div class="modal-domain">
-          <h4><i>Domain: Manufacturing</i></h4>
+          <h4><i>Domain: {{card[8]}}</i></h4>
         </div>
       </div>
     </div>
