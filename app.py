@@ -11,9 +11,9 @@ Session(app)
 UPLOAD_FOLDER = './static/media/modalImages'
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
-                            database='VIT-TEC fresh',
+                            database='flask_db',
                             user="postgres",
-                            password="DevSpidey")
+                            password="ganesh99")
     return conn
 
 
@@ -176,10 +176,12 @@ def get_form_data():
        parentCourse = request.form.get("parentCourse")
        imageName = file1.filename
        domain = request.form.get("domain")
+       hours = request.form.get("hours")
+       email = request.form.get("email")
+       contactName = request.form.get("contactname")
+       contactNumber = request.form.get("contactnumber")
 
-       
-
-       prepared_statement = "INSERT INTO techscards (title, info, whatlearn, coursemodules, salfeatures, parentcourse, imagename, domain) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')".format(title, info, whatLearn, courseModules, salFeatures, parentCourse, imageName, domain)
+       prepared_statement = "INSERT INTO techscards (title, info, whatlearn, coursemodules, salfeatures, parentcourse, imagename, domain, hours, contactemail, contactperson, contactnumber) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')".format(title, info, whatLearn, courseModules, salFeatures, parentCourse, imageName, domain, hours, email, contactName, contactNumber)
        conn = get_db_connection()
        cur = conn.cursor()
        cur.execute(prepared_statement)
