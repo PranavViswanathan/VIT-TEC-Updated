@@ -11,9 +11,9 @@ Session(app)
 UPLOAD_FOLDER = './static/media/modalImages'
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
-                            database='VIT-TEC fresh',
+                            database='flask_db',
                             user="postgres",
-                            password="DevSpidey")
+                            password="ganesh99")
     return conn
 
 
@@ -83,6 +83,74 @@ def technology():
 def leadership():
     return render_template("leadership.html")
 
+
+@app.route('/ai')
+def ai():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM techscards;')
+    cards = cur.fetchall()
+    print(cards)
+    cur.close()
+    conn.close()
+    return render_template("AIML.html", cards = cards)
+
+@app.route('/cloud')
+def cloud():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM techscards;')
+    cards = cur.fetchall()
+    print(cards)
+    cur.close()
+    conn.close()
+    return render_template("cloud.html", cards = cards)
+
+@app.route('/arvr')
+def arvr():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM techscards;')
+    cards = cur.fetchall()
+    print(cards)
+    cur.close()
+    conn.close()
+    return render_template("arvr.html", cards = cards)
+
+@app.route('/datascience')
+def datascience():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM techscards;')
+    cards = cur.fetchall()
+    print(cards)
+    cur.close()
+    conn.close()
+    return render_template("datascience.html", cards = cards)
+
+@app.route('/cybersec')
+def cybersec():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM techscards;')
+    cards = cur.fetchall()
+    print(cards)
+    cur.close()
+    conn.close()
+    return render_template("arvr.html", cards = cards)
+
+
+@app.route('/3dprint')
+def print3d():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM techscards;')
+    cards = cur.fetchall()
+    print(cards)
+    cur.close()
+    conn.close()
+    return render_template("3dprint.html", cards = cards)
+
 @app.route("/personality")
 def personality():
     return render_template("personality.html")
@@ -138,20 +206,12 @@ def deletecard():
         return  render_template("adminpage.html")
     return render_template("deleteform.html")
 
+    @app.route('/aiMl')
+    def aiMl():
+        return render_template("AIML.html")
 
 
 
-@app.route('/temp', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        if 'file1' not in request.files:
-            return 'there is no file1 in form!'
-        file1 = request.files['file1']
-        path = os.path.join(UPLOAD_FOLDER, file1.filename)
-        file1.save(path)
-        return path
 
-        return 'ok'
-    return render_template("temp.html")
 
 
