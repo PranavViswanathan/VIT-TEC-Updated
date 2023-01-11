@@ -11,9 +11,9 @@ Session(app)
 UPLOAD_FOLDER = './static/media/modalImages'
 def get_db_connection():
     conn = psycopg2.connect(host='localhost',
-                            database='flask_db',
+                            database='VIT-TEC fresh',
                             user="postgres",
-                            password="ganesh99")
+                            password="DevSpidey")
     return conn
 
 
